@@ -1,11 +1,18 @@
 #include <iostream>
 #include <vector>
+#include <math.h>
 
+// VERY EASY
 bool lessThan100(int, int);
-std::string censor(std::string);
 int howManySeconds(int);
 int nextEdge(int, int);
+
+// MEDIUM
+std::string censor(std::string);
 int letterCounter(std::vector<std::vector<char>>, char);
+int mySub(int, int);
+int solveForExp(int, int);
+int calculator(int, char, int);
 
 int main()
 {
@@ -27,6 +34,34 @@ int main()
   // std::cout << censor("The code is fourty") << std::endl;
   // std::cout << censor("Two plus three is five") << std::endl;
   // std::cout << censor("aaaa aaaaa 1234 12345") << std::endl;
+
+  // std::cout << letterCounter({
+  // {'D', 'E', 'Y', 'H', 'A', 'D'},
+  // {'C', 'B', 'Z', 'Y', 'J', 'K'},
+  // {'D', 'B', 'C', 'A', 'M', 'N'},
+  // {'F', 'G', 'G', 'R', 'S', 'R'},
+  // {'V', 'X', 'H', 'A', 'S', 'S'}
+  // }, 'D') << std::endl;
+  // std::cout << letterCounter({
+  // {'D', 'E', 'Y', 'H', 'A', 'D'},
+  // {'C', 'B', 'Z', 'Y', 'J', 'K'},
+  // {'D', 'B', 'C', 'A', 'M', 'N'},
+  // {'F', 'G', 'G', 'R', 'S', 'R'},
+  // {'V', 'X', 'H', 'A', 'S', 'S'}
+  // }, 'H') << std::endl;
+
+  // std::cout << mySub(5, 9) << std::endl;
+  // std::cout << mySub(10, 30) << std::endl;
+  // std::cout << mySub(0, 0) << std::endl;
+
+  // std::cout << solveForExp(4, 1024) << std::endl;
+  // std::cout << solveForExp(2, 1024) << std::endl;
+  // std::cout << solveForExp(9, 3486784401) << std::endl;
+
+  std::cout << calculator(2, '+', 2) << std::endl;
+  std::cout << calculator(2, '*', 2) << std::endl;
+  std::cout << calculator(4, '/', 2) << std::endl;
+
   // </MEDIUM>
   // ===========================================================
 
@@ -88,15 +123,52 @@ std::string censor(std::string str)
   return new_str;
 }
 
+// Create a function that counts the number of times a particular letter shows up in the word search.
 int letterCounter(std::vector<std::vector<char>> arr, char c) 
 {
   int times = 0;
 	for (int i = 0; i < arr.size(); i++)
   {
-    if (arr[i][0] == c)
+    for (int j = 0; j < arr[i].size(); j++)
     {
-      times++;
+      if (arr[i][j] == c)
+      {
+        times++;
+      }
     }
   }
   return times;
+}
+
+// Create a function that subtracts one positive integer from another, without using -.
+int mySub(int a, int b)
+{
+  return (b + ~a) + 1;
+}
+
+// Create a function that takes a number a and finds the missing exponent x so that a when raised to the power of x is equal to b.
+int solveForExp(int a, int b)
+{
+  return (int)(log(b) / log(a));
+}
+
+// Create a function that takes two numbers and a mathematical operator + - / * and will perform a calculation with the given numbers.
+int calculator(int num1, char op, int num2)
+{
+  switch (op)
+  {
+    case '+':
+      return num1 + num2;
+    case '-':
+      return num1 - num2;
+    case '*':
+      return num1 * num2;
+    case '/':
+      if (num2 == 0)
+        return 0;
+      else 
+        return num1 / num2;    
+    default:
+      return 0;
+  }
 }
