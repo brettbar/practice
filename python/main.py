@@ -17,6 +17,7 @@ def main():
     # print(rotLeft([41, 73, 89, 7, 10, 1, 59, 58, 84, 77, 77, 97, 58, 1, 86, 58, 26, 10, 86, 51], 10))
     # </EASY>
     # ===========================================================
+    pass
 
 # https://www.hackerrank.com/challenges/2d-array/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays
 def hourGlassSum(arr):
